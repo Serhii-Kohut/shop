@@ -4,6 +4,7 @@ import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -16,6 +17,7 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @FieldDefaults(level = AccessLevel.PRIVATE)
+@MappedSuperclass
 public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
