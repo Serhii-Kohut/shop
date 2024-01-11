@@ -1,5 +1,6 @@
 package com.myown.shop.controller;
 
+import com.myown.shop.dto.auth.AuthenticationRequest;
 import com.myown.shop.service.auth.AuthenticationResponse;
 import com.myown.shop.service.auth.AuthenticationService;
 import com.myown.shop.service.auth.RegisterRequest;
@@ -24,6 +25,9 @@ public class AuthenticationController {
         return ResponseEntity.ok(authenticationService.register(request));
     }
 
-
+    @PostMapping("/authenticate")
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) {
+        return ResponseEntity.ok(authenticationService.authenticate(request));
+    }
 
 }
