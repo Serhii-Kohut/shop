@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,7 +40,10 @@ public class User extends BaseEntity implements UserDetails {
     String username;
 
     @Column(name = "password", nullable = false)
-    @ToString.Include
+    @ToString.Exclude
+    @NotBlank(message = "Password is mandatory")
+    @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}",
+            message = "Password must contain at least 8 characters, one uppercase, one lowercase, and one number")
     String password;
 
     @Column(name = "email", nullable = false)
