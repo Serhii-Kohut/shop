@@ -1,5 +1,7 @@
 package com.myown.shop.config;
 
+import com.myown.shop.mapper.ProductMapper;
+import org.mapstruct.factory.Mappers;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,5 +19,9 @@ public class ApplicationConfig {
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
+    }
+    @Bean
+    public ProductMapper productMapper() {
+        return Mappers.getMapper(ProductMapper.class);
     }
 }
