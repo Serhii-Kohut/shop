@@ -2,6 +2,8 @@ package com.myown.shop.entity;
 
 import com.myown.shop.entity.enumeration.Status;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -30,5 +32,7 @@ public class Product extends BaseEntity{
     Long itemCode;
     String itemName;
     Long itemQuantity;
+
+    @Enumerated(EnumType.STRING)
     Status status;
 }
