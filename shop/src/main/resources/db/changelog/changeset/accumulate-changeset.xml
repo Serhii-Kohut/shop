@@ -64,4 +64,9 @@
 
     </changeSet>
 
+    <changeSet id="unique-email" author="Serhii Kohut">
+        <addUniqueConstraint columnNames="email" constraintName="email_uk" tableName="users"/>
+    </changeSet>
+
+
 </databaseChangeLog>

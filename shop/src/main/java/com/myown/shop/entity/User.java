@@ -40,13 +40,12 @@ public class User extends BaseEntity implements UserDetails {
     String username;
 
     @Column(name = "password", nullable = false)
-    @ToString.Exclude
     @NotBlank(message = "Password is mandatory")
     @Pattern(regexp = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}",
             message = "Password must contain at least 8 characters, one uppercase, one lowercase, and one number")
     String password;
 
-    @Column(name = "email", nullable = false)
+    @Column(name = "email", nullable = false, unique = true)
     @ToString.Include
     String email;
 
