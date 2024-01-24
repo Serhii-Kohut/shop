@@ -6,8 +6,11 @@ services:
     container_name: shop
     depends_on:
       - shop-db
+    ports:
+      - target: 9091
+        published: 9091
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/products
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://shop-db:5432/products
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=root
 
@@ -16,4 +19,4 @@ services:
     container_name: shop-db
     environment:
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_PASSWORD=root
